@@ -27,7 +27,7 @@ showPreloader(preloaderTmp, videoContainer);
 showPreloader(preloaderTmp, cardsContainer);
 mainMechanics(endpoint);
 
-// осуществляется поиск ✅
+// Осуществляется поиск ✅
 form.onsubmit = (e) => {
   e.preventDefault();
   cardsContainer.textContent = '';
@@ -115,7 +115,7 @@ async function delay(ms) {
   });
 }
 
-// Промис, который резолвится, если видео целиком готово к проинрыванию без пауз
+// Промис, который резолвится, если видео целиком готово к проигрыванию без пауз
 
 async function waitForReadyVideo(video) {
   return await new Promise((resolve) => {
@@ -159,14 +159,14 @@ function appendCards({ baseUrl, dataArray, cardTmp, container }) {
   console.log('Сгенерировал карточки');
 }
 
-// Устанавливет внужное видео в контейнер ✅
+// Устанавливет нужное видео в контейнер ✅
 function setVideo({ baseUrl, video, videoUrl, posterUrl }) {
   video.setAttribute('src', `${baseUrl}${videoUrl}`);
   video.setAttribute('poster', `${baseUrl}${posterUrl}`);
   console.log('Подставил видео в основной блок');
 }
 
-// получает данные из формы и сериализует как надо ✅
+// Получает данные из формы и сериализует как надо ✅
 
 function serializeFormData(form) {
   const city = form.querySelector('input[name="city"]');
@@ -196,7 +196,7 @@ function generateFilterRequest(endpoint, city, timeArray) {
   return endpoint;
 }
 
-// переключает текущее видео ✅
+// Переключает текущее видео ✅
 function chooseCurrentVideo({
   baseUrl,
   videoData,
@@ -232,7 +232,7 @@ function chooseCurrentVideo({
   }
 }
 
-// вывожу интерфейс, когда видео не найдено ✅
+// Выводит интерфейс, когда видео не найдено ✅
 function showError(container, errorTemplate, errorMessage) {
   const node = errorTemplate.content.cloneNode(true);
   node.querySelector('.error__title').textContent = errorMessage;
@@ -240,7 +240,7 @@ function showError(container, errorTemplate, errorMessage) {
   console.log('показал, ошибку');
 }
 
-// вывожу больше видео, если в пагинации больше страниц, чем показано
+// Выводит больше видео, если в пагинации больше страниц, чем показано
 
 function showMoreCards({
   dataArray,
@@ -252,13 +252,13 @@ function showMoreCards({
   cardTmp,
 }) {
   if (dataArray.pagination.page === dataArray.pagination.pageCount) return;
-  // добавить кнопку из темплейта в конец списка карточек
+  // Добавляет кнопку из темплейта в конец списка карточек
   const button = buttonTemplate.content.cloneNode(true);
   cardsContainer.append(button);
-  // Выберем добавленный элемент по селектору и добавим слушатель клика
+  // Выбирает добавленный элемент по селектору и добавляет слушатель клика
   const buttonInDOM = cardsContainer.querySelector(buttonSelector);
   buttonInDOM.addEventListener('click', async () => {
-    // по клику запросим данные для следующей страницы
+    // По клику запрашивает данные для следующей страницы
     let currentPage = dataArray.pagination.page;
     let urlToFetch = `${initialEndpoint}pagination[page]=${(currentPage += 1)}&`;
     try {
