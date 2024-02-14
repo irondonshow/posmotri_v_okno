@@ -33,7 +33,7 @@ body {
   display: flex;
   width: 1200px;
   height: 800px;
-  margin: 0;
+  margin: 0 auto;
   color: #fff;
   font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
